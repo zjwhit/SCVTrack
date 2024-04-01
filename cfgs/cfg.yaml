@@ -1,0 +1,59 @@
+#data
+dataset: kitti  # Placing Dataset Types
+path: /data/zjw/pc/Open3DSOT/datasets/kitti/training/ #put data root here
+category_name: Cyclist # [Car, Van, Pedestrian, Cyclist, All]
+divide: [20, 20, 20]
+num_attention_layers: 2
+
+bb_scale: 1.25
+bb_offset: 2
+point_sample_size: 1024
+degrees: False
+coordinate_mode: velodyne
+up_axis: [ 0,0,1 ]
+preload_offset: 10
+data_limit_box: True
+train_split: train
+val_split: test
+test_split: test
+train_type: train_motion
+num_candidates: 4
+motion_threshold: 0.15
+use_augmentation: True
+
+
+#model configuration
+net_model: scvtrack
+box_aware: True
+use_origin_second_stage: True
+use_memory_refine: True
+use_memory_refine_after: False
+use_memory_cls: True
+
+use_motion_cls: False
+use_prev_refinement: False
+
+#loss configuration
+center_weight: 2
+angle_weight: 10.0
+seg_weight: 0.1
+bc_weight: 1
+
+motion_cls_seg_weight: 0.1
+
+# testing config
+use_z: True
+limit_box: False
+IoU_space: 3
+
+#training
+batch_size: 100
+workers: 10
+epoch: 180
+from_epoch: 0
+lr: 0.001
+optimizer: Adam
+lr_decay_step: 20
+lr_decay_rate: 0.2
+wd: 0
+gradient_clip_val: 0.0
