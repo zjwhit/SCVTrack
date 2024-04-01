@@ -1,5 +1,7 @@
 # SCVTrack
 ## Robust-3D-Tracking-with-Quality-Aware-Shape-Completion
+This repository contains the implementation of our method for 3D single object tracking with shape completion. Our approach focuses on constructing precise shape representations using dense and complete point clouds, achieved through shape completion techniques. The provided code includes a voxelized 3D tracking framework with a quality-aware shape completion mechanism, as well as modules for relation modeling. 
+
 https://doi.org/10.1609/aaai.v38i7.28544
 
 ## Setup
@@ -20,7 +22,7 @@ Installation
 
 ## Training & Testing
 
-To train a model, you must specify the `.yaml` file with `--cfg` argument. The `.yaml` file contains all the configurations of the dataset and the model. We provide `.yaml` files under the [*cfgs*](./cfgs) directory. **Note:** Before running the code, you will need to edit the `.yaml` file by setting the `path` argument as the correct root of the dataset.
+To train a model, you must specify the `.yaml` file with `--cfg` argument. The `.yaml` file contains all the configurations of the dataset and the model. We provide `.yaml` files under the [*cfgs*](./cfgs) directory.
 
 ```bash
 CUDA_VISIBLE_DEVICES=0,1 python main.py  --cfg cfgs/cfg.yaml  --batch_size 64 --epoch 60 --preloading
